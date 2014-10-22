@@ -1,0 +1,36 @@
+/*
+ * List pager
+ * @author jrudenstam
+ */
+
+.list-pager li {
+	display: none;
+}
+
+.list-pager .active {
+	display: block;
+}
+
+.list-pager-control-nav li {
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	margin: 0 6px;
+}
+
+.list-pager-control-nav li a {
+	width: 11px;
+	height: 11px;
+	display: block;
+	background: #eee;
+	background: rgba(0,0,0,0.2);
+	cursor: pointer;
+	text-indent: -9999px;
+	overflow: hidden;
+	border-radius: 50%;
+}
+
+.list-pager-control-nav li.active a {
+	background: #ccc;
+	background: rgba(0,0,0,0.4);
+}
