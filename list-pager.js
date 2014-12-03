@@ -6,7 +6,7 @@
 * @author jrudenstam
 */
 
-define(['helper'], function( h ){
+define(['../helper-js/helper'], function( h ){
 	var defaults = {
 		listClass: 'list-pager',
 		nextClass: 'list-pager-next',
@@ -33,6 +33,11 @@ define(['helper'], function( h ){
 			this.settings = h.create( defaults, settings );
 			this.list = h.getByClass( this.settings.listClass, document, true );
 			this.controlNav = h.getByClass( this.settings.controlClass, document, true );
+
+			if ( !this.list || this.list.length<1 || this.list.children.length<1 ) {
+				return;
+			}
+
 			this.pages = Math.ceil( this.list.children.length/this.settings.perPage );
 			this.bindUiEvents();
 
@@ -58,11 +63,11 @@ define(['helper'], function( h ){
 			var next = h.getByClass( this.settings.nextClass, document, true ),
 			prev = h.getByClass( this.settings.prevClass, document, true );
 
-			if ( next ) {
+			if ( next && next.length>0 ) {
 				h.addEvent( next, 'click', this.next, this );
 			}
 
-			if ( prev ) {
+			if ( prev && prev.length>0 ) {
 				h.addEvent( prev, 'click', this.prev, this );
 			}
 
